@@ -2,7 +2,7 @@
 
 This is the first asd(algorithmique et structure de données) project.
 
-
+This project is a game that does this and this and this.
 
 It's due to 01/01/2023.
 
