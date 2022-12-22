@@ -12,7 +12,7 @@ int main (){
 	
 	
 //Tableau des noms----------------------------------------------------------------------
-	//id5aall
+	//Enteri : 
 	cout<<"Entrer la taille de tableau des noms: ";
 	cin>>n;
 	string noms[n]; //tableau des noms
