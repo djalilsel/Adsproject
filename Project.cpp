@@ -9,21 +9,22 @@ int main (){
 	//string ;
 //declaration pour le tableau des noms----------------
 	int i,n;
+	
+	
 //----------------------------------------------------
 	
 	
 //Tableau des noms----------------------------------------------------------------------
 	//Enter : 
-	cout<<"Enter the nember of the users :  ";
+	cout<<"Enter the number of the users :  ";
 	cin>>n;
 	string noms[n]; //tableau des noms
 		cout<<"Enter the name of the  users : "<<endl;
-	for (i=1;i<=n;i++){
-		cout<<"Enter user "<<i<<"name";
+	for (i=0;i<n;i++){
+		cout<<"Enter user "<<i+1<<"name : ";
 		cin>>noms[i];
 	}
-	system("CLS");
-	//affichage------delete after finiched 'we don't need it in the project'---
+	
 	cout<<"the name of users : "<<endl;
 	for (i=0;i<n;i++){	
 	cout<<noms[i]<<endl;
@@ -33,21 +34,24 @@ int main (){
 
 //relation Tabel : 
 // variables for the relation tabel 
-	int j,rt[n][n];
-	cout<<"fill the table with 0 and 1 " ;
+int j,rt[n][n];
+	cout<<"fill the table with 0 and 1 :"<<endl  ;
 	  
-	for(i=1;i<=n;i++){
-		for(j=1;j<=w;j++){
+	for(j=0;j<n;j++){
+		for(i=0;i<n;i++){
 		   cin>>rt[j][i];
 		}
 	}
 		//affichage------delete after finished 
-		for(i=1;i<=n;i++){
-		     for(j=1;j<=w;j++){
-		   cout<<rt	;
+		for(j=0;j<n;j++){
+			cout<<endl;
+		     for(i=0;i<n;i++){
+		     	
+		   cout<<rt[j][i] <<"  |  ";
+		   
 		}
 	}
-		
+
 	
 	
 }
