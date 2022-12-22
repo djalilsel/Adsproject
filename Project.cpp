@@ -1,40 +1,44 @@
 #include<iostream>
-#include<string.h>
-
-
+#include<string>
 #include<windows.h>
 
 using namespace std;
 int main (){
-	//int ;
-	//double ;
-	//char ;
-	//string ;	
+	//list sada9at----------------------------------------------------------------
 	//declaration pour le tableau des noms----------------
 	int i,n;
 	//declaration pour la question 2 x y sont amis----------------------------------------------------
 	string N1,N2;
-	int a,b;
+	int a,b,choice;
+	char noms[100][10];
+
+	
+
 //Tableau des noms----------------------------------------------------------------------
 	//Enter : 
+	cout<<"you want default or manual configuration 1=default 2=manual"<<endl;
+	cin>>choice;
+	if (choice==1){	
+	noms[10]={'djalil','mohamed','ahmed','khalil','khayral'};
+		n=5;
+	}
+	else{
 	cout<<"Enter the number of the users :  ";
 	cin>>n;
-	string noms[n]; //tableau des noms
-		cout<<"Enter the name of the  users : "<<endl;
+	//string noms[n]; //tableau des noms
+	cout<<"Enter the name of the  users : "<<endl;
 	for (i=0;i<n;i++){
 		cout<<"Enter user "<<i+1<<"name : ";
 		cin>>noms[i];
+	}
 	}
 
 	//affichage------delete after finiched 'we don't need it in the project'---
 	cout<<"les utilisateur are:"<<endl;
 	for (i=0;i<n;i++){
-
-	
-	cout<<"the name of users : "<<endl;
+		cout<<"the name of users : "<<endl;
 	for (i=0;i<n;i++){	
-
-	cout<<noms[i]<<endl;
+		cout<<noms[i]<<endl;
 	}
 }
 
@@ -64,10 +68,8 @@ int j,rt[n][n];
 //-------------------------------------------------------------------------------
 	//Question 2 x y sont des amis--------------------------------------------
 	cout<<"Entrer les noms:"<<endl<<"Nom 1: ";
-	//hello world++++++++++++++++++++++++++++++++++
-	cout<<"ahmed chra 5obza"<<endl;
 	cin>>N1;
-	cout<<"Nom 1: ";
+	cout<<"Nom 2: ";
 	cin>>N2;
 	
 	for(i=0;i<n;i++){
@@ -78,16 +80,29 @@ int j,rt[n][n];
 			b=i;
 		}		
 	}
-	if(rt[a][b]==1){
+	if(rt[a][b]==1 && rt[b][a]==1){
 		cout<<noms[a]<<" et "<<noms[b]<<" sont amis :)";
 	}
 	else{
 		cout<<noms[a]<<" et "<<noms[b]<<" ne sont pas amis :)";
 	}
-//------------------------------------------------------------------------
-
-
-	
-	
-
+//question 3------------------------------------------------------------------------
+	//declaration pour la question 3 ------------------------
+	string indiceamis[n];
+	cout<<"Entrer le noms:";
+	cin>>N1;
+	for(i=0;i<n;i++){
+		if(noms[i]==N1){
+			a=i;
+		}		
+	}
+	for(i=0;i<n;i++){
+		if(rt[a][i]==1 && rt[i][a]==1){
+			indiceamis[j]=noms[i];
+			j=j++;
+		}
+	}
+	for(i=0;i<=j;i++){
+		cout<<indiceamis[i]<<"  |  ";
+	}
 }
