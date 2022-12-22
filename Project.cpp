@@ -64,6 +64,8 @@ int j,rt[n][n];
 //-------------------------------------------------------------------------------
 	//Question 2 x y sont des amis--------------------------------------------
 	cout<<"Entrer les noms:"<<endl<<"Nom 1: ";
+	//hello world++++++++++++++++++++++++++++++++++
+	cout<<"ahmed chra 5obza"<<endl;
 	cin>>N1;
 	cout<<"Nom 1: ";
 	cin>>N2;
