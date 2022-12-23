@@ -122,8 +122,18 @@ cout<<"Enter a name for checking if hes celebre or no :";
 			cout<<noms[a]<<" est celebre !"<<endl;
 		}
 		else{
-			cout<<noms[a]<<" est pas celebre ! ";
+			cout<<noms[a]<<" est pas celebre ! "<<endl;
 		}
-
+//question 5------------------------------------------------------------------------
+	//declaration pour la question 5 ------------------------
+	for(j=0;j<n;j++){
+	for(i=0;i<n;i++){
+		testdecelebre=rt[j][i]+testdecelebre;
+		i=a;
+	}
+	if(testdecelebre>=5){
+			cout<<" la liste des personne  celebre : "<<noms[a]<<" , ";
+		}
+		
 }
-
+}
