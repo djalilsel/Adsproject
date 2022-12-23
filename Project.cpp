@@ -126,14 +126,24 @@ cout<<"Enter a name for checking if hes celebre or no :";
 		}
 //question 5------------------------------------------------------------------------
 	//declaration pour la question 5 ------------------------
-	for(j=0;j<n;j++){
-	for(i=0;i<n;i++){
-		testdecelebre=rt[j][i]+testdecelebre;
-		i=a;
+	
+	int testscelebre[n];
+	for(i=0; i<n;i++){
+	testscelebre[i]=0;
 	}
-	if(testdecelebre>=5){
-			cout<<" la liste des personne  celebre : "<<noms[a]<<" , ";
+	for(i=0;i<n;i++){
+		for(j=0;j<n;j++){
+			testscelebre[i]=rt[j][i]+testscelebre[i];
 		}
 		
-}
+	}
+	cout<<" la liste des personne  celebre : "<<endl;
+	for(j=0;j<n;j++){
+		
+		if(testscelebre[j]>=5){
+			cout<<noms[j]<<" , ";
+		}
+	}
+		
+	
 }
