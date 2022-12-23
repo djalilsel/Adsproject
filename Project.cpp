@@ -79,37 +79,35 @@ int j,rt[n][n];
 		}		
 	}
 	if(rt[a][b]==1 && rt[b][a]==1){
-		cout<<noms[a]<<" et "<<noms[b]<<" sont amis :)";
+		cout<<noms[a]<<" et "<<noms[b]<<" sont amis :)"<<endl;
 	}
 	else{
-		cout<<noms[a]<<" et "<<noms[b]<<" ne sont pas amis :)";
+		cout<<noms[a]<<" et "<<noms[b]<<" ne sont pas amis :)"<<endl;
 	}
 //question 3------------------------------------------------------------------------
 //declaration pour la question 3 ------------------------
-/*
+
 	string indiceamis[n];
-	cout<<"Entrer un nom:";
+	cout<<"Enter a name for checking hes friends :";
 	cin>>N1;
 	for(i=0;i<n;i++){
 		if(noms[i]==N1){
 			a=i;
 		}		
 	}
+	cout<<"the freinds of "<<N1<<" are : ";
 	for(i=0;i<n;i++){
 		if(rt[a][i]==1 && rt[i][a]==1){
-			indiceamis[j]=noms[i];
-			j=j++;
+			cout<<noms[i]<<" , ";
+			
 		}
 	}
-	cout<<"the freinds of "<<N1<<"are : ";
-	for(i=0;i<j;i++){
-		cout<<indiceamis[i]<<"  |  ";
-	} */
+	
 	//question 4------------------------------------------------------------------------
 	//declaration pour la question 4 ------------------------
 	int testdecelebre=0;
 	string nomdecelebre;
-cout<<"Entrer un nom:";
+cout<<"Enter a name for checking if hes celebre or no :";
 	cin>>N1;
 	for(i=0;i<n;i++){
 		if(noms[i]==N1){
