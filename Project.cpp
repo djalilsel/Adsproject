@@ -116,7 +116,7 @@ cout<<"Enter a name for checking if hes celebre or no :";
 	}
 
 	for(i=0;i<n;i++){
-		testdecelebre=rt[a][i]+testdecelebre;
+		testdecelebre=rt[i][a]+testdecelebre;
 	}
 	if(testdecelebre>=5){
 			cout<<noms[a]<<" est celebre !"<<endl;
