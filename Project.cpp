@@ -16,13 +16,7 @@ int main (){
 
 //Tableau des noms----------------------------------------------------------------------
 	//Enter : 
-	cout<<"you want default or manual configuration 1=default 2=manual"<<endl;
-	cin>>choice;
-	if (choice==1){	
-	noms[10]={'djalil','mohamed','ahmed','khalil','khayral'};
-		n=5;
-	}
-	else{
+	
 	cout<<"Enter the number of the users :  ";
 	cin>>n;
 	//string noms[n]; //tableau des noms
@@ -31,7 +25,7 @@ int main (){
 		cout<<"Enter user "<<i+1<<"name : ";
 		cin>>noms[i];
 	}
-	}
+	
 
 	//affichage------delete after finiched 'we don't need it in the project'---
 	cout<<"les utilisateur are:"<<endl;
@@ -54,6 +48,10 @@ int j,rt[n][n];
 	for(j=0;j<n;j++){
 		for(i=0;i<n;i++){
 		   cin>>rt[j][i];
+		   if(rt[j][i]>1){
+			cout<<"you need to enter number bitween 1-0 :"<<endl<<"Try agin ! :";
+			i=i-1;
+		   }
 		}
 	}
 		//affichage------delete after finished 
@@ -87,9 +85,10 @@ int j,rt[n][n];
 		cout<<noms[a]<<" et "<<noms[b]<<" ne sont pas amis :)";
 	}
 //question 3------------------------------------------------------------------------
-	//declaration pour la question 3 ------------------------
+//declaration pour la question 3 ------------------------
+/*
 	string indiceamis[n];
-	cout<<"Entrer le noms:";
+	cout<<"Entrer un nom:";
 	cin>>N1;
 	for(i=0;i<n;i++){
 		if(noms[i]==N1){
@@ -102,7 +101,35 @@ int j,rt[n][n];
 			j=j++;
 		}
 	}
-	for(i=0;i<=j;i++){
+	cout<<"the freinds of "<<N1<<"are : ";
+	for(i=0;i<j;i++){
 		cout<<indiceamis[i]<<"  |  ";
+	} */
+	//question 4------------------------------------------------------------------------
+	//declaration pour la question 4 ------------------------
+	int testdecelebre=0;
+	string nomdecelebre;
+cout<<"Entrer un nom:";
+	cin>>N1;
+	for(i=0;i<n;i++){
+		if(noms[i]==N1){
+			a=i;
+		}		
 	}
+	
+	for(i=0;i<n;i++){
+		testdecelebre=rt[a][i]+testdecelebre;
+		cout<<testdecelebre;
+		if(testdecelebre==5){
+			cout<<noms[a]<<" est celebre !"<<endl;
+		}
+		else{
+			cout<<noms[a]<<" est pas celebre ! ";
+		}
+
+		
+	}
+	
+
 }
+
