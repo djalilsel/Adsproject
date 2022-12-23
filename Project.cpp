@@ -116,20 +116,16 @@ cout<<"Entrer un nom:";
 			a=i;
 		}		
 	}
-	
+
 	for(i=0;i<n;i++){
 		testdecelebre=rt[a][i]+testdecelebre;
-		cout<<testdecelebre;
-		if(testdecelebre==5){
+	}
+	if(testdecelebre>=5){
 			cout<<noms[a]<<" est celebre !"<<endl;
 		}
 		else{
 			cout<<noms[a]<<" est pas celebre ! ";
 		}
-
-		
-	}
-	
 
 }
 
