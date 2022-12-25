@@ -65,7 +65,7 @@ int j,rt[n][n];
 	}
 //-------------------------------------------------------------------------------
 	//Question 2 x y sont des amis--------------------------------------------
-	cout<<"Entrer les noms:"<<endl<<"Nom 1: ";
+	cout<<endl<<"Entrer les noms:"<<endl<<"Nom 1: ";
 	cin>>N1;
 	cout<<"Nom 2: ";
 	cin>>N2;
@@ -115,11 +115,14 @@ cout<<"Enter a name for checking if hes celebre or no :";
 		}		
 	}
 
+
 	for(i=0;i<n;i++){
 		testdecelebre=rt[i][a]+testdecelebre;
 	}
-	
-	if(testdecelebre>=5){
+	if( rt[a][a] == 1 ){
+	testdecelebre=testdecelebre-rt[a][a];
+	}
+	if(testdecelebre>=5 && rt[a][a] ==1){
 			cout<<noms[a]<<" est celebre !"<<endl;
 		}
 		else{
@@ -129,6 +132,7 @@ cout<<"Enter a name for checking if hes celebre or no :";
 	//declaration pour la question 5 ------------------------
 	
 	int testscelebre[n];
+	int test=0 ; 
 	for(i=0; i<n;i++){
 	testscelebre[i]=0;
 	}
@@ -136,16 +140,50 @@ cout<<"Enter a name for checking if hes celebre or no :";
 		for(j=0;j<n;j++){
 			testscelebre[i]=rt[j][i]+testscelebre[i];
 		}
-		
+	}
+	for(i=0;i<n;i++){
+			testscelebre[i]=testscelebre[i]-rt[i][i] ;
 	}
 	cout<<" la liste des personne  celebre : "<<endl;
 	for(j=0;j<n;j++){
 		
-		if(testscelebre[j]>=5){
+		if(testscelebre[j]>=5 && rt[i][i] ==1){
+			test=1;
 			cout<<noms[j]<<" , ";
 		}
 	}
-//question 7----------------------------------------------------------------
+	cout<<endl ;
+	if(test==0){
+		cout<<" There is no famous person !  "<<endl;
+	}
+
+		//question 6------------------------------------------------------------------------
+	//declaration pour la question 6 ------------------------
+cout<<"check if the person is spy or not : "<<endl<<endl;
+    	cpt1=0;cpt2=0;
+    	cout<<"Enter name : "; cin>>N1;
+        for(i=0;i<n;i++){
+    	if(noms[i]==N1){
+    		a=i;
+		}
+	}
+	for(j=0;j<n;j++){
+		if(rt[a][j]==1){
+			cpt1++;
+		}
+	}
+	for(i=0;i<n;i++){
+		if(rt[i][a]==0){
+			cpt2++;
+		}
+	}
+	
+	if(cpt1==n && cpt2==n-1){
+		cout<<N1<<" is a spy ."<<endl;
+	}else{ cout<<N1<<" is not a spy ."<<endl;
+		}
+
+	//question 7----------------------------------------------------------------
 string display;
  cout<<"If you want to view the list of spies, | write yes | "; cin>>display;
     if(display=="yes"){
