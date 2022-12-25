@@ -71,19 +71,12 @@ Hicham
 0
 1
 1
-<<<<<<< HEAD
 Hicham
 Ali
 Gadi
 Clint
-=======
-
-
-Ali 
-Brahim
-Ewan
-Gadi 
+ 
 
 
 
->>>>>>> 1d223cc41a5219596a686044130b27895880600a
+
