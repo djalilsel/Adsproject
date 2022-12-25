@@ -6,7 +6,7 @@ using namespace std;
 int main (){
 	//list sada9at----------------------------------------------------------------
 	//declaration pour le tableau des noms----------------
-	int i,n;
+	int i,n,cpt1,cpt2;
 	//declaration pour la question 2 x y sont amis----------------------------------------------------
 	string N1,N2;
 	int a,b,choice;
@@ -84,8 +84,8 @@ int j,rt[n][n];
 	else{
 		cout<<noms[a]<<" et "<<noms[b]<<" ne sont pas amis :)"<<endl;
 	}
-//question 3------------------------------------------------------------------------
-//declaration pour la question 3 ------------------------
+//question 3 la list des amis------------------------------------------------------------------------
+//declaration pour la question 3 ------------------------------------------------------------------------------------------------
 
 	string indiceamis[n];
 	cout<<"Enter a name for checking hes friends :";
@@ -118,6 +118,7 @@ cout<<"Enter a name for checking if hes celebre or no :";
 	for(i=0;i<n;i++){
 		testdecelebre=rt[i][a]+testdecelebre;
 	}
+	
 	if(testdecelebre>=5){
 			cout<<noms[a]<<" est celebre !"<<endl;
 		}
@@ -144,6 +145,30 @@ cout<<"Enter a name for checking if hes celebre or no :";
 			cout<<noms[j]<<" , ";
 		}
 	}
-		
+//question 7----------------------------------------------------------------
+string display;
+ cout<<"If you want to view the list of spies, | write yes | "; cin>>display;
+    if(display=="yes"){
+    	cout<<" List of spies : "<<endl<<endl;
+   
+       	for(i=0;i<n;i++){
+			cpt1=0;	cpt2=0;
+    		for(j=0;j<n;j++){
+    			
+    			if(rt[i][j]==1){
+				cpt1++;	
+                }
+                
+		        if(rt[j][i]==0){
+		    	cpt2++;
+	            }
+				
+        	}
+
+        		if(cpt1==n && cpt2==n-1){
+	        	cout<<" ["<<noms[i]<<"] "<<endl;
+                }
+    	}
+    }
 	
 }
