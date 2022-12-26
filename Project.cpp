@@ -9,7 +9,7 @@ int main (){
 	int i,n,cpt1,cpt2;
 	//declaration pour la question 2 x y sont amis----------------------------------------------------
 	string N1,N2;
-	int a,b,choice;
+	int a,b;
 	char noms[100][10];
 
 	
@@ -208,5 +208,66 @@ string display;
                 }
     	}
     }
+  //question 8 : ------------------------------------------------------------------------------------------------------------------------
+
+    char cho;
+   bool choose;     
+   string nom1,nom2;
+   int z,w,x,y,k;
+    k=0;
+    choose=true;
+    while(k<n+1 && choose==true){
 	
+    cout<<"Enter the name of the first person : ";   cin>>nom1;
+    cout<<"Enter the name of the second person : ";  cin>>nom2;
+	cout<<endl<<endl; 
+	x=999;// x can't stay at 0 because it will cause problems if nom1 is not found
+	y=999;// y can't stay at 0 because it will cause problems if nom2 is not found
+    
+    for(i=0;i<n;i++){
+    		if(noms[i]==nom1){
+    			x=i;
+			}
+	}
+    for(i=0;i<n;i++){
+    		if(noms[i]==nom2){
+    			y=i;
+			}
+	}
+	
+    if(rt[x][y]==1){
+    	cout<<nom1<<" can contact "<<nom2<<" directly because he knows him ."<<endl<<endl;
+	}
+	else{
+	cout<<"You can't contact directely . "<<endl<<endl;
+		        
+	for(i=0;i<n;i++){
+	    if(rt[i][y]==1){
+   	  	    z=i;
+   	  	    i=n;
+   	  	}
+   	}
+   	if(rt[x][z]==1){
+   	  	cout<<nom1<<" can contact "<<nom2<<" by a one mediator he is "<<noms[z]<<endl<<endl;  
+		}
+		else{
+			for(i=0;i<n;i++){
+			 	if(rt[i][z]==1){
+			 		w=i;
+			 		i=n;
+				}
+			}
+				 
+			if(rt[x][w]==1){
+				cout<<nom1<<" can contact "<<nom2<<" by a two mediator  they are  "<<noms[w]<<" and "<<noms[z]<<endl<<endl;
+			}
+			else{
+				cout<<"-1 contact impossible "<<endl<<endl;  
+			}
+		}  
+	}
+	cout<<"If you want to test another contact write 'y', If not write 'n'"<<endl;
+	cin>>cho;
+    if(cho=='n'){ choose=false; }else{ k++; }
+	}
 }
