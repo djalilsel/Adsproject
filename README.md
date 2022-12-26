@@ -1,12 +1,12 @@
-# Asd project
+# ASD project
 
-This is the first asd(algorithmique et structure de données) project.
+This is the first ASD (algorithmique et structure de données) project.
 
-This project is a game that does this and this and this.
+This project is a mini social network.
 
-It's due to 01/01/2023.
+It's due to 11:59pm 29/12/2022.
 
-The group members are:
+Group members:
 1-SELAMNIA Abd eldjalil.
 2-BOUGANDOURA Sadjed.
 3-DJOUAL Yahia.
