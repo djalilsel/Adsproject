@@ -264,7 +264,6 @@ string display;
 		    	if(rt[x][i]==1){
 		  		    Xreletives[i]=i;
 					NbXreletives++;
-					cout<<"Xreletives :" <<Xreletives[i]<<"  ";//
 		  		}
 			}
 			for (i=0;i<NbXreletives;i++){
