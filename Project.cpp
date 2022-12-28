@@ -11,12 +11,20 @@ int main (){
 	string N1,N2;
 	int a,b;
 	char noms[100][10];
-
-	
-
+	//First page 
+	char enter;
+	 HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(h,5);
+	cout<<"                           Welcome To our First project !!                            "<<endl<<endl<<endl<<endl; 
+    SetConsoleTextAttribute(h,6);
+	cout<<"                           To start the application tap y                             "<<endl<<endl;
+	cin>>enter ; 
+	int qst;
+if(enter=='y'){
+		system("CLS");
 //Tableau des noms----------------------------------------------------------------------
 	//Enter : 
-	
+	SetConsoleTextAttribute(h,7);
 	cout<<"Enter the number of the users :  ";
 	cin>>n;
 	//string noms[n]; //tableau des noms
@@ -35,11 +43,6 @@ int main (){
 		cout<<noms[i]<<endl;
 	}
 }
-
-//-------------------------------------------------------------------------------------
-
-
-
 //relation Tabel : 
 // variables for the relation tabel 
 int j,rt[n][n];
@@ -63,10 +66,47 @@ int j,rt[n][n];
 		   
 		}
 	}
-//-------------------------------------------------------------------------------
-	//Question 2 x y sont des amis--------------------------------------------
+	cout<<endl<<"if u want to delet all the texts above tap y ";
+	char enter ; 
+	cin>>enter ;
+	
+	if(enter=='y'){
+	system("CLS");}
+int qst ; 
+//menu : -----------------------------------------------------------
+SetConsoleTextAttribute(h,2);
+cout<<endl<<"               pour afficher : noms(x) et noms(y) sont amis, si x et y sont amis. entre 2 "<<endl;
+cout<<"               pour afficher la liste des amis.  entre 3 "<<endl;
+cout<<"               pour afficher la liste des amis.  entre 4 "<<endl;
+cout<<"               pour afficher la liste des amis.  entre 5 "<<endl;
+cout<<"               pour afficher : noms(x) est un espion, si x est un espion.  = entre 6 "<<endl;
+cout<<"               pour afficher la liste des espions. Combien y-a-t-il d'espions au maximum ? = entre 7 "<<endl;
+cout<<"               pour Tester et afficher Si x peut contacter y : soit directement parce qu'il le connait, soit par l'intermediaire une autre personne.  entre  8 "<<endl;
+cout<<"               pour Tester et afficher  Si x peut contacter y : soit directement parce qu'il le connait, soit par l'intermediaire une autre personne. entre 9 "<<endl;
+cout<<"               Enter the qst u want to see : ";
+cin>>qst ; 
+SetConsoleTextAttribute(h,7);
+	switch (qst)
+	{
+	case 2 :{//Question 2 x y sont des amis--------------------------------------------
 	cout<<endl<<"Entrer les noms:"<<endl<<"Nom 1: ";
+	int o=0 ; 
+	while(o==0){
+		o = 1 ; 
 	cin>>N1;
+	
+	for(i=0;i<n;i++){ 
+		if(N1!=noms[i]){
+			o=0;
+		}
+		if(N1==noms[i]){
+		
+			i=n;
+			o=1 ; 
+		}
+	}
+
+	}
 	cout<<"Nom 2: ";
 	cin>>N2;
 	
@@ -83,10 +123,9 @@ int j,rt[n][n];
 	}
 	else{
 		cout<<noms[a]<<" et "<<noms[b]<<" ne sont pas amis :)"<<endl;
-	}
-//question 3 la list des amis------------------------------------------------------------------------
-//declaration pour la question 3 ------------------------------------------------------------------------------------------------
-
+	} };break;
+	
+case 3:{
 	string indiceamis[n];
 	cout<<"Enter a name for checking hes friends :";
 	cin>>N1;
@@ -102,9 +141,10 @@ int j,rt[n][n];
 			
 		}
 	}
+}break;
 	
-	//question 4------------------------------------------------------------------------
-	//declaration pour la question 4 ------------------------
+case 4 :{
+
 	int testdecelebre=0;
 	string nomdecelebre;
 cout<<"Enter a name for checking if hes celebre or no :";
@@ -127,10 +167,8 @@ cout<<"Enter a name for checking if hes celebre or no :";
 		}
 		else{
 			cout<<noms[a]<<" est pas celebre ! "<<endl;
-		}
-//question 5------------------------------------------------------------------------
-	//declaration pour la question 5 ------------------------
-	
+		} }break;
+case 5 :{
 	int testscelebre[n];
 	int test=0 ; 
 	for(i=0; i<n;i++){
@@ -144,7 +182,7 @@ cout<<"Enter a name for checking if hes celebre or no :";
 	for(i=0;i<n;i++){
 			testscelebre[i]=testscelebre[i]-rt[i][i] ;
 	}
-	cout<<" la liste des personne  celebre : "<<endl;
+	cout<<" The liste of famous persoonnes  : "<<endl;
 	for(j=0;j<n;j++){
 		
 		if(testscelebre[j]>=5 && rt[i][i] ==1){
@@ -155,10 +193,8 @@ cout<<"Enter a name for checking if hes celebre or no :";
 	cout<<endl ;
 	if(test==0){
 		cout<<" There is no famous person !  "<<endl;
-	}
-
-		//question 6------------------------------------------------------------------------
-	//declaration pour la question 6 ------------------------
+	}} break;
+case 6 :	{
 cout<<"check if the person is spy or not : "<<endl<<endl;
     	cpt1=0;cpt2=0;
     	cout<<"Enter name : "; cin>>N1;
@@ -181,9 +217,8 @@ cout<<"check if the person is spy or not : "<<endl<<endl;
 	if(cpt1==n && cpt2==n-1){
 		cout<<N1<<" is a spy ."<<endl;
 	}else{ cout<<N1<<" is not a spy ."<<endl;
-		}
-
-	//question 7----------------------------------------------------------------
+		}} break;
+case 7 :{
 string display;
  cout<<"If you want to view the list of spies, | write yes | "; cin>>display;
     if(display=="yes"){
@@ -207,9 +242,8 @@ string display;
 	        	cout<<" ["<<noms[i]<<"] "<<endl;
                 }
     	}
-    }
-  //question 8 : ------------------------------------------------------------------------------------------------------------------------
-
+    }} ;break;
+case 8 :{
     char cho;
    bool choose;     
    string nom1,nom2;
@@ -224,7 +258,7 @@ string display;
 	x=999;// x can't stay at 0 because it will cause problems if nom1 isn't found.
 	y=999;// y can't stay at 0 because it will cause problems if nom2 isn't found.
     NbYreletives=0;
-	test=0;
+	int test=0;
     for(i=0;i<n;i++){
     		if(noms[i]==nom1){
     			x=i;
@@ -256,8 +290,15 @@ string display;
 			test=1;
 			}
 		}
-
-		//question9------------------------------------------------------------------------------------------------------------
+	 } }}break;
+	
+case 9 :{
+  char cho;
+   bool choose;     
+   string nom1,nom2;
+   int test,Yreletives[n],Xreletives[n],w,x,y,k,p,NbYreletives=0,NbXreletives=0;
+    k=0;
+    choose=true;
 			int f,u,t;
 			if(test==0){
 			for(i=0;i<n;i++){
@@ -280,5 +321,12 @@ string display;
 		cin>>cho;
     	if(cho=='n'){ choose=false; }else{ k++; }
 	}
+	
+	;break;
+	default:
+	break;
+} 
+
 	}
+
 }
