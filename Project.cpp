@@ -213,7 +213,7 @@ string display;
     char cho;
    bool choose;     
    string nom1,nom2;
-   int z,w,x,y,k;
+   int Yreletives[n],Xreletives[n],w,x,y,k,p,NbYreletives=0,NbXreletives=0;
     k=0;
     choose=true;
     while(k<n+1 && choose==true){
@@ -221,9 +221,10 @@ string display;
     cout<<"Enter the name of the first person : ";   cin>>nom1;
     cout<<"Enter the name of the second person : ";  cin>>nom2;
 	cout<<endl<<endl; 
-	x=999;// x can't stay at 0 because it will cause problems if nom1 is not found
-	y=999;// y can't stay at 0 because it will cause problems if nom2 is not found
-    
+	x=999;// x can't stay at 0 because it will cause problems if nom1 isn't found.
+	y=999;// y can't stay at 0 because it will cause problems if nom2 isn't found.
+    NbYreletives=0;
+	test=0;
     for(i=0;i<n;i++){
     		if(noms[i]==nom1){
     			x=i;
@@ -239,35 +240,46 @@ string display;
     	cout<<nom1<<" can contact "<<nom2<<" directly because he knows him ."<<endl<<endl;
 	}
 	else{
-	cout<<"You can't contact directely . "<<endl<<endl;
-		        
-	for(i=0;i<n;i++){
-	    if(rt[i][y]==1){
-   	  	    z=i;
-   	  	    i=n;
-   	  	}
-   	}
-   	if(rt[x][z]==1){
-   	  	cout<<nom1<<" can contact "<<nom2<<" by a one mediator he is "<<noms[z]<<endl<<endl;  
+		cout<<"You can't contact directely . "<<endl<<endl;
+	
+		for(i=0;i<n;i++){
+		    if(rt[i][y]==1){
+   	 	 	    Yreletives[NbYreletives]=i;
+				NbYreletives++;
+   		  	}
+   		}
+		for(i=0;i<NbYreletives;i++){
+			p=Yreletives[i];
+   			if(rt[x][p]==1){
+   	  		cout<<nom1<<" can contact "<<nom2<<" by a one mediator he is "<<noms[p]<<endl<<endl; 
+			i=NbYreletives;
+			test=1;
+			}
 		}
-		else{
+
+		//question9------------------------------------------------------------------------------------------------------------
+			int f,u,t;
+			if(test==0){
 			for(i=0;i<n;i++){
-			 	if(rt[i][z]==1){
-			 		w=i;
-			 		i=n;
+		    	if(rt[x][i]==1){
+		  		    Xreletives[i]=i;
+					NbXreletives++;
+					cout<<"Xreletives :" <<Xreletives[i]<<"  ";//
+		  		}
+			}
+			for (i=0;i<NbXreletives;i++){
+				u=Xreletives[i];
+				for(j=0;j<NbYreletives;j++){
+					t=Yreletives[j];
+					if(rt[u][t]==1){
+						cout<<nom1<<" can contact "<<nom2<<" by a two mediator  they are  "<<noms[u]<<" and "<<noms[t]<<endl<<endl;
+					}
 				}
 			}
-				 
-			if(rt[x][w]==1){
-				cout<<nom1<<" can contact "<<nom2<<" by a two mediator  they are  "<<noms[w]<<" and "<<noms[z]<<endl<<endl;
-			}
-			else{
-				cout<<"-1 contact impossible "<<endl<<endl;  
-			}
-		}  
+		}
+		cout<<"If you want to test another contact write 'y', If not write 'n'"<<endl;
+		cin>>cho;
+    	if(cho=='n'){ choose=false; }else{ k++; }
 	}
-	cout<<"If you want to test another contact write 'y', If not write 'n'"<<endl;
-	cin>>cho;
-    if(cho=='n'){ choose=false; }else{ k++; }
 	}
 }
