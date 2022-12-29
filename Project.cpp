@@ -9,7 +9,7 @@ int main (){
 	int i,n,cpt1,cpt2;
 	//declaration pour la question 2 x y sont amis----------------------------------------------------
 	string N1,N2;
-	int a,b;
+	int a,b,o=0;
 	char noms[100][10];
 	//First page 
 	char enter;
@@ -21,7 +21,7 @@ int main (){
 	cin>>enter ; 
 	int qst;
 if(enter=='y'){
-		system("CLS");
+		system("CLS");}
 //Tableau des noms----------------------------------------------------------------------
 	//Enter : 
 	SetConsoleTextAttribute(h,7);
@@ -35,7 +35,7 @@ if(enter=='y'){
 	}
 	
 
-	//affichage------delete after finiched 'we don't need it in the project'---
+	//affichage--------------------------------------------------------------------------
 	cout<<"les utilisateur are:"<<endl;
 	for (i=0;i<n;i++){
 		cout<<"the name of users : "<<endl;
@@ -66,33 +66,34 @@ int j,rt[n][n];
 		   
 		}
 	}
-	cout<<endl<<"if u want to delet all the texts above tap y ";
-	char enter ; 
+	cout<<endl<<"if u want to delet all the texts above write 'y' if not 'n'"<<endl;
+	
 	cin>>enter ;
 	
 	if(enter=='y'){
-	system("CLS");}
-int qst ; 
-//menu : -----------------------------------------------------------
-SetConsoleTextAttribute(h,2);
-cout<<endl<<"               pour afficher : noms(x) et noms(y) sont amis, si x et y sont amis. entre 2 "<<endl;
-cout<<"               pour afficher la liste des amis.  entre 3 "<<endl;
-cout<<"               pour afficher la liste des amis.  entre 4 "<<endl;
-cout<<"               pour afficher la liste des amis.  entre 5 "<<endl;
-cout<<"               pour afficher : noms(x) est un espion, si x est un espion.  = entre 6 "<<endl;
-cout<<"               pour afficher la liste des espions. Combien y-a-t-il d'espions au maximum ? = entre 7 "<<endl;
-cout<<"               pour Tester et afficher Si x peut contacter y : soit directement parce qu'il le connait, soit par l'intermediaire une autre personne.  entre  8 "<<endl;
-cout<<"               pour Tester et afficher  Si x peut contacter y : soit directement parce qu'il le connait, soit par l'intermediaire une autre personne. entre 9 "<<endl;
-cout<<"               Enter the qst u want to see : ";
-cin>>qst ; 
-SetConsoleTextAttribute(h,7);
+	system("CLS");} 
+	char run='y' ; 
+ 	while(run=='y'){
+    //menu : -----------------------------------------------------------
+    SetConsoleTextAttribute(h,2);
+    cout<<endl<<"               pour afficher : noms(x) et noms(y) sont amis, si x et y sont amis. entre 2 "<<endl;
+    cout<<"            pour afficher la liste des amis.  entre 3 "<<endl;
+    cout<<"            pour afficher la liste des amis.  entre 4 "<<endl;
+    cout<<"            pour afficher la liste des amis.  entre 5 "<<endl;
+    cout<<"            pour afficher : noms(x) est un espion, si x est un espion.  = entre 6 "<<endl;
+    cout<<"            pour afficher la liste des espions. Combien y-a-t-il d'espions au maximum ? = entre 7 "<<endl;
+    cout<<"            pour Tester et afficher Si x peut contacter y : soit directement parce qu'il le connait, soit par l'intermediaire une autre personne.  entre  8 "<<endl;
+    cout<<"            pour Tester et afficher  Si x peut contacter y : soit directement parce qu'il le connait, soit par l'intermediaire une autre personne. entre 9 "<<endl;
+	cout<<"            If you want to exit. Enter 10."<<endl;
+    cout<<"            Enter the qst u want to see : ";
+    cin>>qst ; 
+	SetConsoleTextAttribute(h,7);
 	switch (qst)
 	{
 	case 2 :{//Question 2 x y sont des amis--------------------------------------------
 	cout<<endl<<"Entrer les noms:"<<endl<<"Nom 1: ";
-	int o=0 ; 
 	while(o==0){
-		o = 1 ; 
+		
 	cin>>N1;
 	
 	for(i=0;i<n;i++){ 
@@ -105,10 +106,33 @@ SetConsoleTextAttribute(h,7);
 			o=1 ; 
 		}
 	}
+	if(o==0){
+		cout<<"Name does not exist !"<<endl<<"Try again : ";
+	}
 
 	}
 	cout<<"Nom 2: ";
+	o=0;
+	while(o==0){
+		
 	cin>>N2;
+	
+	for(i=0;i<n;i++){ 
+		if(N2!=noms[i]){
+			o=0;
+		}
+		if(N2==noms[i]){
+		
+			i=n;
+			o=1 ; 
+		}
+	}
+	if(o==0){
+		cout<<"Name does not exist !"<<endl<<"Try again : ";
+	}
+
+	}
+	
 	
 	for(i=0;i<n;i++){
 		if(noms[i]==N1){
@@ -147,8 +171,28 @@ case 4 :{
 
 	int testdecelebre=0;
 	string nomdecelebre;
-cout<<"Enter a name for checking if hes celebre or no :";
+	cout<<"Enter a name for checking if hes celebre or no :";
+	o=0;
+	while(o==0){
+		
 	cin>>N1;
+	
+	for(i=0;i<n;i++){ 
+		if(N1!=noms[i]){
+			o=0;
+		}
+		if(N1==noms[i]){
+		
+			i=n;
+			o=1 ; 
+		}
+	}
+	if(o==0){
+		cout<<"Name does not exist !"<<endl<<"Try again : ";
+	}
+
+	}
+	
 	for(i=0;i<n;i++){
 		if(noms[i]==N1){
 			a=i;
@@ -195,9 +239,29 @@ case 5 :{
 		cout<<" There is no famous person !  "<<endl;
 	}} break;
 case 6 :	{
-cout<<"check if the person is spy or not : "<<endl<<endl;
-    	cpt1=0;cpt2=0;
-    	cout<<"Enter name : "; cin>>N1;
+	cout<<"check if the person is spy or not : "<<endl<<endl;
+    cpt1=0;cpt2=0;
+	cout<<"Enter name : "; 
+	o=0;
+	while(o==0){
+		
+	cin>>N1;
+	
+	for(i=0;i<n;i++){ 
+		if(N1!=noms[i]){
+			o=0;
+		}
+		if(N1==noms[i]){
+		
+			i=n;
+			o=1 ; 
+		}
+	}
+	if(o==0){
+		cout<<"Name does not exist !"<<endl<<"Try again : ";
+	}
+
+	}
         for(i=0;i<n;i++){
     	if(noms[i]==N1){
     		a=i;
@@ -252,8 +316,48 @@ case 8 :{
     choose=true;
     while(k<n+1 && choose==true){
 	
-    cout<<"Enter the name of the first person : ";   cin>>nom1;
-    cout<<"Enter the name of the second person : ";  cin>>nom2;
+    cout<<"Enter the name of the first person : ";
+	o=0;
+	while(o==0){
+		
+	cin>>nom1;
+	
+	for(i=0;i<n;i++){ 
+		if(nom1!=noms[i]){
+			o=0;
+		}
+		if(nom1==noms[i]){
+		
+			i=n;
+			o=1 ; 
+		}
+	}
+	if(o==0){
+		cout<<"Name does not exist !"<<endl<<"Try again : ";
+	}
+
+	}  
+    cout<<"Enter the name of the second person : ";  
+	o=0;
+	while(o==0){
+		
+	cin>>nom2;
+	
+	for(i=0;i<n;i++){ 
+		if(nom2!=noms[i]){
+			o=0;
+		}
+		if(nom2==noms[i]){
+		
+			i=n;
+			o=1 ; 
+		}
+	}
+	if(o==0){
+		cout<<"Name does not exist !"<<endl<<"Try again : ";
+	}
+
+	}
 	cout<<endl<<endl; 
 	x=999;// x can't stay at 0 because it will cause problems if nom1 isn't found.
 	y=999;// y can't stay at 0 because it will cause problems if nom2 isn't found.
@@ -300,6 +404,88 @@ case 9 :{
     k=0;
     choose=true;
 			int f,u,t;
+			while(k<n+1 && choose==true){
+	
+    cout<<"Enter the name of the first person : ";
+	o=0;
+	while(o==0){
+		
+	cin>>nom1;
+	
+	for(i=0;i<n;i++){ 
+		if(nom1!=noms[i]){
+			o=0;
+		}
+		if(nom1==noms[i]){
+		
+			i=n;
+			o=1 ; 
+		}
+	}
+	if(o==0){
+		cout<<"Name does not exist !"<<endl<<"Try again : ";
+	}
+
+	}  
+    cout<<"Enter the name of the second person : ";  
+	o=0;
+	while(o==0){
+		
+	cin>>nom2;
+	
+	for(i=0;i<n;i++){ 
+		if(nom2!=noms[i]){
+			o=0;
+		}
+		if(nom2==noms[i]){
+		
+			i=n;
+			o=1 ; 
+		}
+	}
+	if(o==0){
+		cout<<"Name does not exist !"<<endl<<"Try again : ";
+	}
+
+	}
+   
+	cout<<endl<<endl; 
+	x=999;// x can't stay at 0 because it will cause problems if nom1 isn't found.
+	y=999;// y can't stay at 0 because it will cause problems if nom2 isn't found.
+    NbYreletives=0;
+	int test=0;
+    for(i=0;i<n;i++){
+    		if(noms[i]==nom1){
+    			x=i;
+			}
+	}
+    for(i=0;i<n;i++){
+    		if(noms[i]==nom2){
+    			y=i;
+			}
+	}
+	
+    if(rt[x][y]==1){
+    	cout<<nom1<<" can contact "<<nom2<<" directly because he knows him ."<<endl<<endl;
+	}
+	else{
+		cout<<"You can't contact directely . "<<endl<<endl;
+	
+		for(i=0;i<n;i++){
+		    if(rt[i][y]==1){
+   	 	 	    Yreletives[NbYreletives]=i;
+				NbYreletives++;
+   		  	}
+   		}
+		for(i=0;i<NbYreletives;i++){
+			p=Yreletives[i];
+   			if(rt[x][p]==1){
+   	  		cout<<nom1<<" can contact "<<nom2<<" by a one mediator which is : "<<noms[p]<<endl<<endl; 
+			i=NbYreletives;
+			test=1;
+			}
+		}
+	 } 
 			if(test==0){
 			for(i=0;i<n;i++){
 		    	if(rt[x][i]==1){
@@ -312,21 +498,26 @@ case 9 :{
 				for(j=0;j<NbYreletives;j++){
 					t=Yreletives[j];
 					if(rt[u][t]==1){
-						cout<<nom1<<" can contact "<<nom2<<" by a two mediator  they are  "<<noms[u]<<" and "<<noms[t]<<endl<<endl;
+						cout<<nom1<<" can contact "<<nom2<<" by a two mediator  which are : "<<noms[u]<<" and "<<noms[t]<<endl<<endl;
 					}
 				}
 			}
 		}
-		cout<<"If you want to test another contact write 'y', If not write 'n'"<<endl;
+		cout<<"If you want to test another contact write 'y', If not write 'n' :"<<endl;
 		cin>>cho;
     	if(cho=='n'){ choose=false; }else{ k++; }
 	}
-	
-	;break;
+	};break;
+
+	case 10 :{
+		run='n';
+
+	};break;
 	default:
 	break;
 } 
 
 	}
-
 }
+
+
