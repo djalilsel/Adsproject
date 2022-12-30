@@ -76,7 +76,7 @@ int j,rt[n][n];
  	while(run=='y'){
     //menu : -----------------------------------------------------------
     SetConsoleTextAttribute(h,2);
-    cout<<endl<<"               pour afficher : noms(x) et noms(y) sont amis, si x et y sont amis. entre 2 "<<endl;
+    cout<<endl<<"            pour afficher : noms(x) et noms(y) sont amis, si x et y sont amis. entre 2 "<<endl;
     cout<<"            pour afficher la liste des amis.  entre 3 "<<endl;
     cout<<"            pour afficher la liste des amis.  entre 4 "<<endl;
     cout<<"            pour afficher la liste des amis.  entre 5 "<<endl;
@@ -85,7 +85,7 @@ int j,rt[n][n];
     cout<<"            pour Tester et afficher Si x peut contacter y : soit directement parce qu'il le connait, soit par l'intermediaire une autre personne.  entre  8 "<<endl;
     cout<<"            pour Tester et afficher  Si x peut contacter y : soit directement parce qu'il le connait, soit par l'intermediaire une autre personne. entre 9 "<<endl;
 	cout<<"            If you want to exit. Enter 10."<<endl;
-    cout<<"            Enter the qst u want to see : ";
+    cout<<"            Enter your choice : ";
     cin>>qst ; 
 	SetConsoleTextAttribute(h,7);
 	switch (qst)
@@ -280,7 +280,7 @@ case 6 :	{
 	
 	if(cpt1==n && cpt2==n-1){
 		cout<<N1<<" is a spy ."<<endl;
-	}else{ cout<<N1<<" is not a spy ."<<endl;
+	}else{ cout<<N1<<" is not a spy."<<endl;
 		}} break;
 case 7 :{
 string display;
@@ -359,8 +359,6 @@ case 8 :{
 
 	}
 	cout<<endl<<endl; 
-	x=999;// x can't stay at 0 because it will cause problems if nom1 isn't found.
-	y=999;// y can't stay at 0 because it will cause problems if nom2 isn't found.
     NbYreletives=0;
 	int test=0;
     for(i=0;i<n;i++){
@@ -394,7 +392,12 @@ case 8 :{
 			test=1;
 			}
 		}
-	 } }}break;
+	}
+		cout<<"If you want to test another contact write 'y', If not write 'n' :"<<endl;
+		cin>>cho;
+    	if(cho=='n'){ choose=false; }else{ k++; } 
+	}
+	 }break;
 	
 case 9 :{
   char cho;
@@ -404,8 +407,7 @@ case 9 :{
     k=0;
     choose=true;
 			int f,u,t;
-			while(k<n+1 && choose==true){
-	
+   while(k<n+1 && choose==true){
     cout<<"Enter the name of the first person : ";
 	o=0;
 	while(o==0){
@@ -450,8 +452,6 @@ case 9 :{
 	}
    
 	cout<<endl<<endl; 
-	x=999;// x can't stay at 0 because it will cause problems if nom1 isn't found.
-	y=999;// y can't stay at 0 because it will cause problems if nom2 isn't found.
     NbYreletives=0;
 	int test=0;
     for(i=0;i<n;i++){
@@ -485,7 +485,7 @@ case 9 :{
 			test=1;
 			}
 		}
-	 } 
+   
 			if(test==0){
 			for(i=0;i<n;i++){
 		    	if(rt[x][i]==1){
@@ -508,14 +508,68 @@ case 9 :{
     	if(cho=='n'){ choose=false; }else{ k++; }
 	}
 	};break;
-
 	case 10 :{
+		    char cho;
+   bool choose;     
+   string nom1,nom2;
+   int Yreletives[n],Xreletives[n],w,x,y,k,p,NbYreletives=0,NbXreletives=0;
+    k=0;
+    choose=true;
+    while(k<n+1 && choose==true){
+	cout<<"Enter the name of the first person : ";
+	o=0;
+	while(o==0){
+		
+	cin>>nom1;
+	
+	for(i=0;i<n;i++){ 
+		if(nom1!=noms[i]){
+			o=0;
+		}
+		if(nom1==noms[i]){
+		
+			i=n;
+			o=1 ; 
+		}
+	}
+	if(o==0){
+		cout<<"Name does not exist !"<<endl<<"Try again : ";
+	}
+
+	}  
+    cout<<"Enter the name of the second person : ";  
+	o=0;
+	while(o==0){
+		
+	cin>>nom2;
+	
+	for(i=0;i<n;i++){ 
+		if(nom2!=noms[i]){
+			o=0;
+		}
+		if(nom2==noms[i]){
+		
+			i=n;
+			o=1 ; 
+		}
+	}
+	if(o==0){
+		cout<<"Name does not exist !"<<endl<<"Try again : ";
+	}
+	}
+	cout<<"If you want to test another contact write 'y', If not write 'n' :"<<endl;
+	cin>>cho;
+   	if(cho=='n'){ choose=false; }else{ k++; }
+	}
+	}break;
+
+case 00 :{
 		run='n';
 
 	};break;
 	default:
 	break;
-} 
+	} 
 
 	}
 }
