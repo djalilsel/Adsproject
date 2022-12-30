@@ -1,5 +1,5 @@
 #include<iostream>
-#include<string>
+#include<string.h>
 #include<windows.h>
 
 using namespace std;
@@ -24,11 +24,15 @@ if(enter=='y'){
 		system("CLS");}
 //Tableau des noms----------------------------------------------------------------------
 	//Enter : 
-	SetConsoleTextAttribute(h,7);
+	
+	SetConsoleTextAttribute(h,3);
 	cout<<"Enter the number of the users :  ";
+	SetConsoleTextAttribute(h,7);
 	cin>>n;
 	//string noms[n]; //tableau des noms
+	SetConsoleTextAttribute(h,3);
 	cout<<"Enter the name of the  users : "<<endl;
+	SetConsoleTextAttribute(h,7);
 	for (i=0;i<n;i++){
 		cout<<"Enter user "<<i+1<<"name : ";
 		cin>>noms[i];
@@ -36,10 +40,13 @@ if(enter=='y'){
 	
 
 	//affichage--------------------------------------------------------------------------
+	SetConsoleTextAttribute(h,3);
 	cout<<"les utilisateur are:"<<endl;
 	for (i=0;i<n;i++){
+		SetConsoleTextAttribute(h,3);
 		cout<<"the name of users : "<<endl;
 	for (i=0;i<n;i++){	
+		SetConsoleTextAttribute(h,7);
 		cout<<noms[i]<<endl;
 	}
 }
@@ -52,6 +59,7 @@ int j,rt[n][n];
 		for(i=0;i<n;i++){
 		   cin>>rt[j][i];
 		   if(rt[j][i]>1){
+			SetConsoleTextAttribute(h,3);
 			cout<<"you need to enter number bitween 1-0 :"<<endl<<"Try agin ! :";
 			i=i-1;
 		   }
@@ -66,6 +74,7 @@ int j,rt[n][n];
 		   
 		}
 	}
+	SetConsoleTextAttribute(h,4);
 	cout<<endl<<"if u want to delet all the texts above write 'y' if not 'n'"<<endl;
 	
 	cin>>enter ;
@@ -84,16 +93,17 @@ int j,rt[n][n];
     cout<<"            pour afficher la liste des espions. Combien y-a-t-il d'espions au maximum ? = entre 7 "<<endl;
     cout<<"            pour Tester et afficher Si x peut contacter y : soit directement parce qu'il le connait, soit par l'intermediaire une autre personne.  entre  8 "<<endl;
     cout<<"            pour Tester et afficher  Si x peut contacter y : soit directement parce qu'il le connait, soit par l'intermediaire une autre personne. entre 9 "<<endl;
-	cout<<"            If you want to exit. Enter 10."<<endl;
+	cout<<"            If you want to exit. Enter 11."<<endl;
     cout<<"            Enter your choice : ";
     cin>>qst ; 
 	SetConsoleTextAttribute(h,7);
 	switch (qst)
 	{
 	case 2 :{//Question 2 x y sont des amis--------------------------------------------
+	SetConsoleTextAttribute(h,3);
 	cout<<endl<<"Entrer les noms:"<<endl<<"Nom 1: ";
 	while(o==0){
-		
+			SetConsoleTextAttribute(h,7);
 	cin>>N1;
 	
 	for(i=0;i<n;i++){ 
@@ -107,14 +117,16 @@ int j,rt[n][n];
 		}
 	}
 	if(o==0){
+			SetConsoleTextAttribute(h,4);
 		cout<<"Name does not exist !"<<endl<<"Try again : ";
 	}
-
+	SetConsoleTextAttribute(h,7);
 	}
+	SetConsoleTextAttribute(h,3);
 	cout<<"Nom 2: ";
 	o=0;
 	while(o==0){
-		
+		SetConsoleTextAttribute(h,7);
 	cin>>N2;
 	
 	for(i=0;i<n;i++){ 
@@ -128,6 +140,7 @@ int j,rt[n][n];
 		}
 	}
 	if(o==0){
+			SetConsoleTextAttribute(h,4);
 		cout<<"Name does not exist !"<<endl<<"Try again : ";
 	}
 
@@ -143,21 +156,27 @@ int j,rt[n][n];
 		}		
 	}
 	if(rt[a][b]==1 && rt[b][a]==1){
+			SetConsoleTextAttribute(h,3);
 		cout<<noms[a]<<" et "<<noms[b]<<" sont amis :)"<<endl;
 	}
 	else{
+			SetConsoleTextAttribute(h,3);
 		cout<<noms[a]<<" et "<<noms[b]<<" ne sont pas amis :)"<<endl;
-	} };break;
+	} 
 	
+	};break;
+		SetConsoleTextAttribute(h,7);
 case 3:{
 	string indiceamis[n];
+		SetConsoleTextAttribute(h,3);
 	cout<<"Enter a name for checking hes friends :";
+		SetConsoleTextAttribute(h,7);
 	cin>>N1;
 	for(i=0;i<n;i++){
 		if(noms[i]==N1){
 			a=i;
 		}		
-	}
+	}	SetConsoleTextAttribute(h,3);
 	cout<<"the freinds of "<<N1<<" are : ";
 	for(i=0;i<n;i++){
 		if(rt[a][i]==1 && rt[i][a]==1){
@@ -503,10 +522,11 @@ case 9 :{
 				}
 			}
 		}
-		cout<<"If you want to test another contact write 'y', If not write 'n' :"<<endl;
+		
+	}
+	cout<<"If you want to test another contact write 'y', If not write 'n' :"<<endl;
 		cin>>cho;
     	if(cho=='n'){ choose=false; }else{ k++; }
-	}
 	}};break;
 	case 10 :{
 		    char cho;
@@ -562,14 +582,27 @@ case 9 :{
    	if(cho=='n'){ choose=false; }else{ k++; }
 	}
 	}break;
-
+cout<<"if you want to see the menu again enter  y and if you want to exit the app enter n   "<<endl;
+	cin>>run ; 
 case 11 :{
 		run='n';
 
-	};break;
+	};
+	break;
 	default:
 	break;
 	} 
+	
+	
+	if(run=='n'){ 
+		system("CLS");
+		SetConsoleTextAttribute(h,5);
+		cout<<"this app was made by :"<<endl<<
+		"1-SELAMNIA Abd eldjalil"<<endl<<
+		"2-BOUGANDOURA Sadjed"<<endl<<
+	    "3-DJOUAL Yahia";
+	}
+	
 
 	}
 }
