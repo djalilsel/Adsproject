@@ -507,7 +507,7 @@ case 9 :{
 		cin>>cho;
     	if(cho=='n'){ choose=false; }else{ k++; }
 	}
-	};break;
+	}};break;
 	case 10 :{
 		    char cho;
    bool choose;     
@@ -563,7 +563,7 @@ case 9 :{
 	}
 	}break;
 
-case 00 :{
+case 11 :{
 		run='n';
 
 	};break;
