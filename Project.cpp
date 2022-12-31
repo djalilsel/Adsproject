@@ -10,7 +10,7 @@ int main (){
 	//declaration pour la question 2 x y sont amis----------------------------------------------------
 	string N1,N2;
 	int a,b,o=0;
-	char noms[100][10];
+	char noms[100][10],run='y';
 	//First page 
 	char enter;
 	 HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -20,8 +20,12 @@ int main (){
 	cout<<"                           To start the application tap y                             "<<endl<<endl;
 	cin>>enter ; 
 	int qst;
-if(enter=='y'){
-		system("CLS");}
+
+		
+
+	if(enter=='y'){
+		system("CLS");
+	}
 //Tableau des noms----------------------------------------------------------------------
 	//Enter : 
 	
@@ -43,8 +47,8 @@ if(enter=='y'){
 	SetConsoleTextAttribute(h,3);
 	cout<<"les utilisateur are:"<<endl;
 	for (i=0;i<n;i++){
-		SetConsoleTextAttribute(h,3);
-		cout<<"the name of users : "<<endl;
+	SetConsoleTextAttribute(h,3);
+	cout<<"the name of users : "<<endl;
 	for (i=0;i<n;i++){	
 		SetConsoleTextAttribute(h,7);
 		cout<<noms[i]<<endl;
@@ -81,7 +85,7 @@ int j,rt[n][n];
 	
 	if(enter=='y'){
 	system("CLS");} 
-	char run='y' ; 
+	
  	while(run=='y'){
     //menu : -----------------------------------------------------------
     SetConsoleTextAttribute(h,2);
@@ -93,13 +97,12 @@ int j,rt[n][n];
     cout<<"            pour afficher la liste des espions. Combien y-a-t-il d'espions au maximum ? = entre 7 "<<endl;
     cout<<"            pour Tester et afficher Si x peut contacter y : soit directement parce qu'il le connait, soit par l'intermediaire une autre personne.  entre  8 "<<endl;
     cout<<"            pour Tester et afficher  Si x peut contacter y : soit directement parce qu'il le connait, soit par l'intermediaire une autre personne. entre 9 "<<endl;
-	cout<<"            If you want to exit. Enter 11."<<endl;
+	cout<<"            If you want to exit. Enter 00."<<endl;
     cout<<"            Enter your choice : ";
     cin>>qst ; 
 	SetConsoleTextAttribute(h,7);
-	switch (qst)
-	{
-	case 2 :{//Question 2 x y sont des amis--------------------------------------------
+	switch (qst){
+case 2 :{//Question 2 x y sont des amis--------------------------------------------
 	SetConsoleTextAttribute(h,3);
 	cout<<endl<<"Entrer les noms:"<<endl<<"Nom 1: ";
 	while(o==0){
@@ -528,12 +531,13 @@ case 9 :{
 		cin>>cho;
     	if(cho=='n'){ choose=false; }else{ k++; }
 	}};break;
-	case 10 :{
-		    char cho;
-   bool choose;     
-   string nom1,nom2;
-   int Yreletives[n],Xreletives[n],w,x,y,k,p,NbYreletives=0,NbXreletives=0;
-    k=0;
+case 10 :{
+	char cho;
+    bool choose;     
+    string nom1,nom2;
+    int Yreletives[n],Xreletives[n],w,x,y,k,p,t,u,i,j,NbYreletives=0,
+	NbXreletives=0,NbXXreletives=0,XXreletives[n][n];
+	k=0;
     choose=true;
     while(k<n+1 && choose==true){
 	cout<<"Enter the name of the first person : ";
@@ -577,21 +581,92 @@ case 9 :{
 		cout<<"Name does not exist !"<<endl<<"Try again : ";
 	}
 	}
+	cout<<endl<<endl; 
+    NbYreletives=0;
+	int test=0;
+    for(i=0;i<n;i++){
+    		if(noms[i]==nom1){
+    			x=i;
+			}
+	}
+    for(i=0;i<n;i++){
+    		if(noms[i]==nom2){
+    			y=i;
+			}
+	}
+
+	if(rt[x][y]==1){
+    	cout<<nom1<<" can contact "<<nom2<<" directly because he knows him ."<<endl<<endl;
+	}
+	else{
+		cout<<"You can't contact directely . "<<endl<<endl;
+	
+		for(i=0;i<n;i++){
+		    if(rt[x][i]==1){
+   	 	 	    Xreletives[NbXreletives]=i;
+				NbXreletives++;
+				
+   		  	}
+   		}
+		for(i=0;i<NbXreletives;i++){
+			p=Xreletives[i];
+   			if(rt[y][p]==1){
+				
+   	  		cout<<nom1<<" can contact "<<nom2<<" by a one mediator which is : "<<noms[p]<<endl<<endl; 
+			i=NbXreletives;
+			test=1;
+			}
+		}
+		
+		if(test!=1){
+			cout<<"NbXreletives"<<NbXreletives<<endl;
+			for(i=0;i<=NbXreletives;i++){
+				p=Xreletives[i];
+				for(j=0;j<n;j++){
+					if(rt[p][j]==1){
+					XXreletives[i][j]=j;
+					NbXXreletives++;
+					}
+				}
+			}
+		
+		for (i=0;i<n;i++){
+			for(j=0;j<n;j++)
+			u=XXreletives[i][j];
+				if(rt[u][y]==1){
+					cout<<nom1<<" can contact "<<nom2<<" by a two mediator  which are : "<<noms[i]<<" and "<<noms[u]<<endl<<endl;
+					i=n;
+				}
+			
+		}
+		}
+	}
+		
+	
+
+
+
+
+
+
+
+
 	cout<<"If you want to test another contact write 'y', If not write 'n' :"<<endl;
 	cin>>cho;
    	if(cho=='n'){ choose=false; }else{ k++; }
 	}
-	}break;
+	}
+	;break;
 cout<<"if you want to see the menu again enter  y and if you want to exit the app enter n   "<<endl;
 	cin>>run ; 
-case 11 :{
+case 00 :{
 		run='n';
 
 	};
 	break;
 	default:
 	break;
-	} 
+	 
 	
 	
 	if(run=='n'){ 
@@ -605,6 +680,7 @@ case 11 :{
 	
 
 	}
-}
+	}
 
+}
 
