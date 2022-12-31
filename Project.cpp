@@ -10,7 +10,7 @@ int main (){
 	//declaration pour la question 2 x y sont amis----------------------------------------------------
 	string N1,N2;
 	int a,b,o=0;
-	char noms[100][10],run='y';
+	char noms[100][10];
 	//First page 
 	char enter;
 	 HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -20,12 +20,9 @@ int main (){
 	cout<<"                           To start the application tap y                             "<<endl<<endl;
 	cin>>enter ; 
 	int qst;
-
-		
-
-	if(enter=='y'){
-		system("CLS");
-	}
+	char run='y'; 
+if(enter=='y'){
+		system("CLS");}
 //Tableau des noms----------------------------------------------------------------------
 	//Enter : 
 	
@@ -47,8 +44,8 @@ int main (){
 	SetConsoleTextAttribute(h,3);
 	cout<<"les utilisateur are:"<<endl;
 	for (i=0;i<n;i++){
-	SetConsoleTextAttribute(h,3);
-	cout<<"the name of users : "<<endl;
+		SetConsoleTextAttribute(h,3);
+		cout<<"the name of users : "<<endl;
 	for (i=0;i<n;i++){	
 		SetConsoleTextAttribute(h,7);
 		cout<<noms[i]<<endl;
@@ -79,7 +76,7 @@ int j,rt[n][n];
 		}
 	}
 	SetConsoleTextAttribute(h,4);
-	cout<<endl<<"if u want to delet all the texts above write 'y' if not 'n'"<<endl;
+	cout<<endl<<"if u want to delete all the texts above write 'y' if not 'n'"<<endl;
 	
 	cin>>enter ;
 	
@@ -97,12 +94,13 @@ int j,rt[n][n];
     cout<<"            pour afficher la liste des espions. Combien y-a-t-il d'espions au maximum ? = entre 7 "<<endl;
     cout<<"            pour Tester et afficher Si x peut contacter y : soit directement parce qu'il le connait, soit par l'intermediaire une autre personne.  entre  8 "<<endl;
     cout<<"            pour Tester et afficher  Si x peut contacter y : soit directement parce qu'il le connait, soit par l'intermediaire une autre personne. entre 9 "<<endl;
-	cout<<"            If you want to exit. Enter 00."<<endl;
+	cout<<"            If you want to exit. Enter 11."<<endl;
     cout<<"            Enter your choice : ";
     cin>>qst ; 
 	SetConsoleTextAttribute(h,7);
-	switch (qst){
-case 2 :{//Question 2 x y sont des amis--------------------------------------------
+	switch (qst)
+	{
+	case 2 :{//Question 2 x y sont des amis--------------------------------------------
 	SetConsoleTextAttribute(h,3);
 	cout<<endl<<"Entrer les noms:"<<endl<<"Nom 1: ";
 	while(o==0){
@@ -167,7 +165,9 @@ case 2 :{//Question 2 x y sont des amis-----------------------------------------
 		cout<<noms[a]<<" et "<<noms[b]<<" ne sont pas amis :)"<<endl;
 	} 
 	
-	};break;
+	SetConsoleTextAttribute(h,4);
+cout<<"if you want to go to the menu again enter y and if you want to exit enter n    "<<endl;
+	cin>>run ; };break;
 		SetConsoleTextAttribute(h,7);
 case 3:{
 	string indiceamis[n];
@@ -186,17 +186,20 @@ case 3:{
 			cout<<noms[i]<<" , ";
 			
 		}
-	}
+	}SetConsoleTextAttribute(h,4);
+cout<<"if you want to go to the menu again enter y and if you want to exit enter n    "<<endl;
+	cin>>run ; 
 }break;
 	
 case 4 :{
 
 	int testdecelebre=0;
 	string nomdecelebre;
+	SetConsoleTextAttribute(h,3);
 	cout<<"Enter a name for checking if hes celebre or no :";
 	o=0;
 	while(o==0){
-		
+		SetConsoleTextAttribute(h,7);
 	cin>>N1;
 	
 	for(i=0;i<n;i++){ 
@@ -210,6 +213,7 @@ case 4 :{
 		}
 	}
 	if(o==0){
+		SetConsoleTextAttribute(h,4);
 		cout<<"Name does not exist !"<<endl<<"Try again : ";
 	}
 
@@ -229,11 +233,15 @@ case 4 :{
 	testdecelebre=testdecelebre-rt[a][a];
 	}
 	if(testdecelebre>=5 && rt[a][a] ==1){
+		SetConsoleTextAttribute(h,3);
 			cout<<noms[a]<<" est celebre !"<<endl;
 		}
 		else{
+			SetConsoleTextAttribute(h,3);
 			cout<<noms[a]<<" est pas celebre ! "<<endl;
-		} }break;
+		} SetConsoleTextAttribute(h,4);
+cout<<"if you want to go to the menu again enter y and if you want to exit enter n    "<<endl;
+	cin>>run ; }break;
 case 5 :{
 	int testscelebre[n];
 	int test=0 ; 
@@ -247,7 +255,7 @@ case 5 :{
 	}
 	for(i=0;i<n;i++){
 			testscelebre[i]=testscelebre[i]-rt[i][i] ;
-	}
+	}SetConsoleTextAttribute(h,3);
 	cout<<" The liste of famous persoonnes  : "<<endl;
 	for(j=0;j<n;j++){
 		
@@ -257,16 +265,18 @@ case 5 :{
 		}
 	}
 	cout<<endl ;
-	if(test==0){
+	if(test==0){SetConsoleTextAttribute(h,4);
 		cout<<" There is no famous person !  "<<endl;
-	}} break;
-case 6 :	{
+	}SetConsoleTextAttribute(h,4);
+cout<<"if you want to go to the menu again enter y and if you want to exit enter n    "<<endl;
+	cin>>run ; } break;
+case 6 :	{SetConsoleTextAttribute(h,3);
 	cout<<"check if the person is spy or not : "<<endl<<endl;
     cpt1=0;cpt2=0;
 	cout<<"Enter name : "; 
 	o=0;
 	while(o==0){
-		
+		SetConsoleTextAttribute(h,7);
 	cin>>N1;
 	
 	for(i=0;i<n;i++){ 
@@ -279,7 +289,7 @@ case 6 :	{
 			o=1 ; 
 		}
 	}
-	if(o==0){
+	if(o==0){SetConsoleTextAttribute(h,4);
 		cout<<"Name does not exist !"<<endl<<"Try again : ";
 	}
 
@@ -303,11 +313,17 @@ case 6 :	{
 	if(cpt1==n && cpt2==n-1){
 		cout<<N1<<" is a spy ."<<endl;
 	}else{ cout<<N1<<" is not a spy."<<endl;
-		}} break;
+		}
+		SetConsoleTextAttribute(h,4);
+cout<<"if you want to go to the menu again enter y and if you want to exit enter n    "<<endl;
+	cin>>run ; } break;
 case 7 :{
 string display;
- cout<<"If you want to view the list of spies, | write yes | "; cin>>display;
+SetConsoleTextAttribute(h,5);
+ cout<<"If you want to view the list of spies, | write yes | "; 
+ cin>>display;
     if(display=="yes"){
+		SetConsoleTextAttribute(h,3);
     	cout<<" List of spies : "<<endl<<endl;
    
        	for(i=0;i<n;i++){
@@ -328,7 +344,10 @@ string display;
 	        	cout<<" ["<<noms[i]<<"] "<<endl;
                 }
     	}
-    }} ;break;
+    }
+	SetConsoleTextAttribute(h,4);
+cout<<"if you want to go to the menu again enter y and if you want to exit enter n    "<<endl;
+	cin>>run ; } ;break;
 case 8 :{
     char cho;
    bool choose;     
@@ -337,11 +356,11 @@ case 8 :{
     k=0;
     choose=true;
     while(k<n+1 && choose==true){
-	
+	SetConsoleTextAttribute(h,3);
     cout<<"Enter the name of the first person : ";
 	o=0;
 	while(o==0){
-		
+		SetConsoleTextAttribute(h,7);
 	cin>>nom1;
 	
 	for(i=0;i<n;i++){ 
@@ -355,14 +374,15 @@ case 8 :{
 		}
 	}
 	if(o==0){
+		SetConsoleTextAttribute(h,4);
 		cout<<"Name does not exist !"<<endl<<"Try again : ";
 	}
 
-	}  
+	}  SetConsoleTextAttribute(h,3);
     cout<<"Enter the name of the second person : ";  
 	o=0;
 	while(o==0){
-		
+		SetConsoleTextAttribute(h,7);
 	cin>>nom2;
 	
 	for(i=0;i<n;i++){ 
@@ -376,6 +396,7 @@ case 8 :{
 		}
 	}
 	if(o==0){
+		SetConsoleTextAttribute(h,4);
 		cout<<"Name does not exist !"<<endl<<"Try again : ";
 	}
 
@@ -395,9 +416,11 @@ case 8 :{
 	}
 	
     if(rt[x][y]==1){
+		SetConsoleTextAttribute(h,3);
     	cout<<nom1<<" can contact "<<nom2<<" directly because he knows him ."<<endl<<endl;
 	}
 	else{
+		SetConsoleTextAttribute(h,4);
 		cout<<"You can't contact directely . "<<endl<<endl;
 	
 		for(i=0;i<n;i++){
@@ -409,15 +432,19 @@ case 8 :{
 		for(i=0;i<NbYreletives;i++){
 			p=Yreletives[i];
    			if(rt[x][p]==1){
+				SetConsoleTextAttribute(h,3);
    	  		cout<<nom1<<" can contact "<<nom2<<" by a one mediator he is "<<noms[p]<<endl<<endl; 
 			i=NbYreletives;
 			test=1;
 			}
 		}
-	}
+	}SetConsoleTextAttribute(h,2);
 		cout<<"If you want to test another contact write 'y', If not write 'n' :"<<endl;
 		cin>>cho;
     	if(cho=='n'){ choose=false; }else{ k++; } 
+		SetConsoleTextAttribute(h,4);
+cout<<"if you want to go to the menu again enter y and if you want to exit enter n    "<<endl;
+	cin>>run ; 
 	}
 	 }break;
 	
@@ -425,15 +452,16 @@ case 9 :{
   char cho;
    bool choose;     
    string nom1,nom2;
-   int test,XXreletives[n][n],Xreletives[n],w,x,y,k,p,NbXXreletives=0,NbXreletives=0;
+   int test,Yreletives[n],Xreletives[n],w,x,y,k,p,NbYreletives=0,NbXreletives=0;
     k=0;
     choose=true;
-	int f,u,t,found=0;
+			int f,u,t;
    while(k<n+1 && choose==true){
+	SetConsoleTextAttribute(h,3);
     cout<<"Enter the name of the first person : ";
 	o=0;
 	while(o==0){
-		
+		SetConsoleTextAttribute(h,7);
 	cin>>nom1;
 	
 	for(i=0;i<n;i++){ 
@@ -446,15 +474,15 @@ case 9 :{
 			o=1 ; 
 		}
 	}
-	if(o==0){
+	if(o==0){SetConsoleTextAttribute(h,4);
 		cout<<"Name does not exist !"<<endl<<"Try again : ";
 	}
 
-	}  
+	}  SetConsoleTextAttribute(h,3);
     cout<<"Enter the name of the second person : ";  
 	o=0;
 	while(o==0){
-		
+		SetConsoleTextAttribute(h,7);
 	cin>>nom2;
 	
 	for(i=0;i<n;i++){ 
@@ -467,109 +495,12 @@ case 9 :{
 			o=1 ; 
 		}
 	}
-	if(o==0){
+	if(o==0){SetConsoleTextAttribute(h,4);
 		cout<<"Name does not exist !"<<endl<<"Try again : ";
 	}
 
 	}
    
-	cout<<endl<<endl; 
-    NbXXreletives=0;
-	int test=0;
-    for(i=0;i<n;i++){
-		if(noms[i]==nom1){
-    		x=i;
-		}
-	}
-    for(i=0;i<n;i++){
-		if(noms[i]==nom2){
-			y=i;
-		}
-	}
-		for(i=0;i<n;i++){
-		    if(rt[x][i]==1){
-   	 	 	    Xreletives[NbXreletives]=i;
-				NbXreletives++;
-   		  	}
-   		}
-		for(i=0;i<NbXreletives;i++){
-			p=Xreletives[i];
-			for(j=0;j<n;j++){
-				if(rt[p][j]==1){
-					XXreletives[i][j]=j;
-					NbXXreletives++;
-				}
-			}
-		}
-		for (i=0;i<n;i++){
-			for(j=0;j<n;j++){
-			u=XXreletives[i][j];
-				if(rt[u][y]==1){
-					cout<<nom1<<" can contact "<<nom2<<" by a two mediator  which are : "<<noms[i]<<" and "<<noms[u]<<endl<<endl;
-					i=n;
-					j=n;
-					found=1;
-				}
-			}	
-		}
-	if(found=0){
-		cout<<nom1<<" can't contact "<<nom2<<" by a two mediators "<<endl;
-	}
-	
-	cout<<"If you want to test another contact write 'y', If not write 'n' :"<<endl;
-		cin>>cho;
-    	if(cho=='n'){ choose=false; }else{ k++; }
-	}};break;
-case 10 :{
-	char cho;
-    bool choose;     
-    string nom1,nom2;
-    int Yreletives[n],Xreletives[n],w,x,y,k,p,t,u,i,j,NbYreletives=0,
-	NbXreletives=0,NbXXreletives[i],XXreletives[n][n];
-	k=0;
-    choose=true;
-    while(k<n+1 && choose==true){
-	cout<<"Enter the name of the first person : ";
-	o=0;
-	while(o==0){
-		
-	cin>>nom1;
-	
-	for(i=0;i<n;i++){ 
-		if(nom1!=noms[i]){
-			o=0;
-		}
-		if(nom1==noms[i]){
-		
-			i=n;
-			o=1 ; 
-		}
-	}
-	if(o==0){
-		cout<<"Name does not exist !"<<endl<<"Try again : ";
-	}
-
-	}  
-    cout<<"Enter the name of the second person : ";  
-	o=0;
-	while(o==0){
-		
-	cin>>nom2;
-	
-	for(i=0;i<n;i++){ 
-		if(nom2!=noms[i]){
-			o=0;
-		}
-		if(nom2==noms[i]){
-		
-			i=n;
-			o=1 ; 
-		}
-	}
-	if(o==0){
-		cout<<"Name does not exist !"<<endl<<"Try again : ";
-	}
-	}
 	cout<<endl<<endl; 
     NbYreletives=0;
 	int test=0;
@@ -583,79 +514,131 @@ case 10 :{
     			y=i;
 			}
 	}
-
-	if(rt[x][y]==1){
+	
+    if(rt[x][y]==1){
+		SetConsoleTextAttribute(h,3);
     	cout<<nom1<<" can contact "<<nom2<<" directly because he knows him ."<<endl<<endl;
 	}
 	else{
+		SetConsoleTextAttribute(h,4);
 		cout<<"You can't contact directely . "<<endl<<endl;
 	
 		for(i=0;i<n;i++){
-		    if(rt[x][i]==1){
-   	 	 	    Xreletives[NbXreletives]=i;
-				NbXreletives++;
-				
+		    if(rt[i][y]==1){
+   	 	 	    Yreletives[NbYreletives]=i;
+				NbYreletives++;
    		  	}
    		}
-		for(i=0;i<NbXreletives;i++){
-			p=Xreletives[i];
-   			if(rt[y][p]==1){
-				
+		for(i=0;i<NbYreletives;i++){
+			p=Yreletives[i];
+   			if(rt[x][p]==1){
+				SetConsoleTextAttribute(h,3);
    	  		cout<<nom1<<" can contact "<<nom2<<" by a one mediator which is : "<<noms[p]<<endl<<endl; 
-			i=NbXreletives;
+			i=NbYreletives;
 			test=1;
 			}
 		}
-		
-		if(test!=1){
-			for(i=0;i<=NbXreletives;i++){
-				p=Xreletives[i];
-				for(j=0;j<n;j++){
-					if(rt[p][j]==1){
-					XXreletives[i][j]=j;
-					NbXXreletives[i];
+   
+			if(test==0){
+			for(i=0;i<n;i++){
+		    	if(rt[x][i]==1){
+		  		    Xreletives[i]=i;
+					NbXreletives++;
+		  		}
+			}
+			for (i=0;i<NbXreletives;i++){
+				u=Xreletives[i];
+				for(j=0;j<NbYreletives;j++){
+					t=Yreletives[j];
+					if(rt[u][t]==1){
+						SetConsoleTextAttribute(h,3);
+						cout<<nom1<<" can contact "<<nom2<<" by a two mediator  which are : "<<noms[u]<<" and "<<noms[t]<<endl<<endl;
 					}
 				}
 			}
-		
-		for (i=0;i<NbXreletives;i++){
-			y=NbXXreletives[i];
-			for(j=0;j<y;j++){
-			u=XXreletives[i][j];
-				if(rt[u][y]==1){
-					cout<<nom1<<" can contact "<<nom2<<" by a two mediator  which are : "<<noms[i]<<" and "<<noms[u]<<endl<<endl;
-					i=n;
-				}
-			}
 		}
+		
+	}
+	SetConsoleTextAttribute(h,7);
+	cout<<"If you want to test another contact write 'y', If not write 'n' :"<<endl;
+		cin>>cho;
+    	if(cho=='n'){ choose=false; }else{ k++; }
+		SetConsoleTextAttribute(h,4);
+cout<<"if you want to go to the menu again enter y and if you want to exit enter n    "<<endl;
+	cin>>run ; 
+	}};break;
+	case 10 :{
+		    char cho;
+   bool choose;     
+   string nom1,nom2;
+   int Yreletives[n],Xreletives[n],w,x,y,k,p,NbYreletives=0,NbXreletives=0;
+    k=0;
+    choose=true;
+    while(k<n+1 && choose==true){
+		SetConsoleTextAttribute(h,3);
+	cout<<"Enter the name of the first person : ";
+	o=0;
+	while(o==0){
+		SetConsoleTextAttribute(h,7);
+	cin>>nom1;
+	
+	for(i=0;i<n;i++){ 
+		if(nom1!=noms[i]){
+			o=0;
+		}
+		if(nom1==noms[i]){
+		
+			i=n;
+			o=1 ; 
 		}
 	}
+	if(o==0){
+		SetConsoleTextAttribute(h,4);
+		cout<<"Name does not exist !"<<endl<<"Try again : ";
+	}
+
+	}  
+	SetConsoleTextAttribute(h,3);
+    cout<<"Enter the name of the second person : ";  
+	o=0;
+	while(o==0){
+		SetConsoleTextAttribute(h,7);
+	cin>>nom2;
+	for(i=0;i<n;i++){ 
+		if(nom2!=noms[i]){
+			o=0;
+		}
+		if(nom2==noms[i]){
 		
+			i=n;
+			o=1 ; 
+		}
+	}
+	if(o==0){
+		SetConsoleTextAttribute(h,4);
+		cout<<"Name does not exist !"<<endl<<"Try again : ";
+	}
 	
+	}
 
-
-
-
-
-
-
-
+SetConsoleTextAttribute(h,7);
 	cout<<"If you want to test another contact write 'y', If not write 'n' :"<<endl;
 	cin>>cho;
    	if(cho=='n'){ choose=false; }else{ k++; }
 	}
-	}
-	;break;
-cout<<"if you want to see the menu again enter  y and if you want to exit the app enter n   "<<endl;
+	SetConsoleTextAttribute(h,4);
+cout<<"if you want to go to the menu again enter y and if you want to exit enter n    "<<endl;
 	cin>>run ; 
-case 00 :{
+	}break;
+
+case 11 :{
 		run='n';
 
 	};
 	break;
 	default:
 	break;
-	 
+	} 
 	
 	
 	if(run=='n'){ 
@@ -669,7 +652,6 @@ case 00 :{
 	
 
 	}
-	}
-
 }
+
 
