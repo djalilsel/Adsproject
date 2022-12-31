@@ -525,7 +525,7 @@ case 10 :{
     bool choose;     
     string nom1,nom2;
     int Yreletives[n],Xreletives[n],w,x,y,k,p,t,u,i,j,NbYreletives=0,
-	NbXreletives=0,NbXXreletives=0,XXreletives[n][n];
+	NbXreletives=0,NbXXreletives[i],XXreletives[n][n];
 	k=0;
     choose=true;
     while(k<n+1 && choose==true){
@@ -613,19 +613,20 @@ case 10 :{
 				for(j=0;j<n;j++){
 					if(rt[p][j]==1){
 					XXreletives[i][j]=j;
-					NbXXreletives++;
+					NbXXreletives[i];
 					}
 				}
 			}
 		
-		for (i=0;i<n;i++){
-			for(j=0;j<n;j++)
+		for (i=0;i<NbXreletives;i++){
+			y=NbXXreletives[i];
+			for(j=0;j<y;j++){
 			u=XXreletives[i][j];
 				if(rt[u][y]==1){
 					cout<<nom1<<" can contact "<<nom2<<" by a two mediator  which are : "<<noms[i]<<" and "<<noms[u]<<endl<<endl;
 					i=n;
 				}
-			
+			}
 		}
 		}
 	}
